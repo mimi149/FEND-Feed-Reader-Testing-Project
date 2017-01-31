@@ -21,19 +21,19 @@ $(function () {
 		});
 
 		// Test to ensure all the feeds have the URLs defined and they are not empty.
-		it('every item of allFeeds has a not empty URL', function () {
-			allFeeds.forEach(function (item) {
-				expect(item.url).toBeDefined();
-				expect(item.url).not.toEqual("");
-			})
+		it('every feed of allFeeds has a not empty URL', function () {
+			allFeeds.forEach(function (feed) {
+				expect(feed.url).toBeDefined();
+				expect(feed.url).not.toEqual("");
+			});
 		});
 
 		// Test to ensure all the feeds have the names defined and they are not empty.
-		it('every item of allFeeds has a not empty name', function () {
-			allFeeds.forEach(function (item) {
-				expect(item.name).toBeDefined();
-				expect(item.name).not.toEqual("");
-			})
+		it('every feed of allFeeds has a not empty name', function () {
+			allFeeds.forEach(function (feed) {
+				expect(feed.name).toBeDefined();
+				expect(feed.name).not.toEqual("");
+			});
 		});
 	});
 
@@ -82,8 +82,8 @@ $(function () {
 
 		// Test to ensure there is at least a single .entry element within the .feed container.
 		it('.feed contains at least an .entry element when the loadFeed completes its work', function () {
-			expect($('.feed').children().length).toBeGreaterThan(0);
-		})
+			expect($('.feed .entry-link .entry').text()).not.toBe("");
+		});
 	});
 
 
@@ -109,7 +109,7 @@ $(function () {
 		// Test to ensure that content is actually changed when a new feed is loaded.
 		it('when a new feed is loaded by the loadFeed function the content actually changes', function () {
 			expect(prevContent).not.toBe(newContent);
-		})
+		});
 	});
 
 }());
